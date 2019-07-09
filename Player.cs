@@ -14,7 +14,10 @@ namespace LemonadeStand
         //add more as you can think 
 
         //constructor
-       
+        public Player()
+        {
+
+        }
 
         //member methods 
 

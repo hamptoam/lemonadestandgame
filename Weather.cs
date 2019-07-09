@@ -12,7 +12,7 @@ namespace LemonadeStand
 
         public Weather()
         {
-
+            
         }
 
     }
