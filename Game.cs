@@ -13,6 +13,8 @@ namespace LemonadeStand
         public string playerchoice;
         public string forecast;
         public int dayCounter;
+        public List<Customer> customers;
+        public List<Day> days;
         // and dayLimit or seperate function?
 
         //member construct
@@ -87,10 +89,25 @@ namespace LemonadeStand
                 Console.WriteLine("You can only play for 28 days per game.");
                 numberofDays();
             }
+
             else
             {
-                dayCounter = input; 
+                 dayCounter = input;
+            }
+        }
+        public void getCustomers()
+        {
+            
+        }
+
+        public void getDays()
+        {
+            for (int i = 0; i < dayCounter; i++)
+            {
+                Day day = new Day();
+                days.Add(day);
             }
         }
     }
 }
+    

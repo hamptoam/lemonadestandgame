@@ -8,9 +8,16 @@ namespace LemonadeStand
 {
     class Day
     {
-        public int dayCounter;
-        public string weather;
-        public int supply;
-        public string demand;
+        public Weather weather;
+        /*public int supply;
+        public string demand;*/
+
+        public Day()
+        {
+            weather = new Weather(); 
+        } 
+
+
     }
 }
+
