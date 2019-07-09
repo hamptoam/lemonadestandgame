@@ -101,8 +101,6 @@ namespace LemonadeStand
             {
                 Customer customer = new Customer();
                 customers.Add(customer);
-                customers.Add(customer);
-
             }
             
         }
