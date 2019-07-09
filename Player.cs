@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Player
-    {
+    public class Player
+    { //member variables (What does a player have?
+        public string name;
+        public int allowance;
+        public int expenses;
+        //add more as you can think 
+
+        //constructor
+       
+
+        //member methods 
+
+       // abstract public string chooseOption();
     }
 }

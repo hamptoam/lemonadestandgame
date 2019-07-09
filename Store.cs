@@ -8,5 +8,10 @@ namespace LemonadeStand
 {
     class Store
     {
+        public string groceries;
+        public int quantityLemons;
+        public int quantitySugar;
+        public int quantityCups;
+        public int costTotal;
     }
 }
