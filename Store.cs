@@ -15,3 +15,25 @@ namespace LemonadeStand
         public int costTotal;
     }
 }
+
+    //Console.WriteLine("Welcome to the store!");
+
+
+
+    /*public void buyLemons()
+    {
+        Console.WriteLine();
+    }
+
+    public void getSugar()
+    {
+        //"sugarrrrrr.... in... watrrr..... (Men in Black Reference)
+        Console.WriteLine();
+    }
+
+    public void getCups()
+    {
+    }
+}
+
+    */

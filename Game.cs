@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
         //member variables (What does this game have?)
         public Player player1;
+        public Store store;
         public string playerchoice;
         public string forecast;
         public int dayCounter;
@@ -28,10 +29,25 @@ namespace LemonadeStand
 
         public void RunGame()
         {
+            SetUp();
+            for (int i = 0; i < days.Count; i++)
+            { //print player allowance 
+                // menu - store, recipes
+
+             // sell lemonade: set prices
+            }
+
+
+        }
+
+        public void SetUp()
+        {
             ChooseName();
             Console.WriteLine("Hi " + player1.name + " welcome to your lemonade stand!");
             readRules();
-            numberofDays();
+            NumberOfDays();
+            GetDays();
+            GetCustomers();
         }
 
         public void ChooseName()
@@ -39,6 +55,20 @@ namespace LemonadeStand
             Console.WriteLine("Please enter your name");
             player1.name = Console.ReadLine();
 
+        }
+
+        static public int GameMenu()
+        {
+            Console.WriteLine("Your allowance is" + startingAllowance);
+            Console.WriteLine("1 -");
+            Console.WriteLine("2 -");
+            Console.WriteLine("3 -");
+            Console.WriteLine("4 -");
+            Console.WriteLine("5 -");
+            Console.WriteLine("6 -");
+
+            var result = Console.ReadLine();
+            return Convert.ToInt32(result);
         }
 
         public void readRules()
@@ -61,6 +91,7 @@ namespace LemonadeStand
                 {
                     Console.WriteLine("Cool " + player1.name + " Let's squeeze some damn lemons!");
                     Console.Clear();
+                    GameMenu();
                 }
 
 
@@ -69,10 +100,33 @@ namespace LemonadeStand
                 {
                     Console.WriteLine("Cool" + player1.name + " Lets squeeze some damn lemons!");
                     Console.Clear();
+                    GameMenu();
                 }
             }
         }
-        public void numberofDays()
+
+
+
+        public void GoToStore()
+        {
+            string yesorNo = Console.ReadLine();
+
+            Console.WriteLine("Would you like to go to the store? y or n");
+            Console.ReadLine();
+
+            if (yesorNo == "y")
+            {
+
+
+            }
+
+            else if (yesorNo == "n")
+            {
+
+
+            }
+        }
+        public void NumberOfDays()
         {
             Console.WriteLine("How many days would you like to play? Min. 7, Max 28.");
             int input = int.Parse(Console.ReadLine());
@@ -81,38 +135,43 @@ namespace LemonadeStand
             if (input < 7)
             {
                 Console.WriteLine("You have to play for at least 7 days per game.");
-                numberofDays();
+                NumberOfDays();
             }
 
             else if (input > 28)
             {
                 Console.WriteLine("You can only play for 28 days per game.");
-                numberofDays();
+                NumberOfDays();
             }
 
             else
             {
-                 dayCounter = input;
+                dayCounter = input;
             }
         }
-        public void getCustomers()
+
+
+        public void GetCustomers()
         {
             for (int i = 0; i < 100; i++)
             {
                 Customer customer = new Customer();
                 customers.Add(customer);
             }
-            
+
         }
 
-        public void getDays()
+        public void GetDays()
         {
             for (int i = 0; i < dayCounter; i++)
             {
                 Day day = new Day();
+
                 days.Add(day);
             }
         }
+
+
     }
 }
     
