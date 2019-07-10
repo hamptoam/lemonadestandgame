@@ -21,7 +21,12 @@ namespace LemonadeStand
            startingAllowance = 500;
            startingAllowance = playerAllowance();
         }
-
+       public int playerAllowance()
+        {
+            int newAllowance = startingAllowance - expenses;
+            Console.WriteLine("Your allowance is " + newAllowance);
+            return newAllowance;
+        }
 
         
 

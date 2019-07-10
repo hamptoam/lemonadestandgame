@@ -10,12 +10,15 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
+
             Customer.GetPrice();
             Player player = new Player();
             Game game = new Game();
             game.RunGame();
             game.GameMenu();
             Console.ReadLine();
+
+      
         }
     }
 }

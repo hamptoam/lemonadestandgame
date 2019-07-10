@@ -31,18 +31,13 @@ namespace LemonadeStand
         {
             SetUp();
             for (int i = 0; i < days.Count; i++)
-            {
-                //print player allowance 
-                                // menu - store, recipes
+            { //print player allowance 
+                // menu - store, recipes
 
-                // sell lemonade: set prices
+             // sell lemonade: set prices
             }
 
-            player1 = new Player();
-            int playerAllowance = player1.playerAllowance();
 
-            Console.WriteLine(playerAllowance);
-            Console.Clear();
         }
 
         public void SetUp()
@@ -64,12 +59,18 @@ namespace LemonadeStand
 
         public void GameMenu()
         {
-            Console.WriteLine("Game Menu");
-            Console.WriteLine("1 - Store");
-            Console.WriteLine("2 - Recipe");
-            Console.WriteLine("3 - Forecast");
-            Console.WriteLine("4 - Close Menu");
-            Console.WriteLine("5 - Close Game");
+            player1 = new Player();
+            int playerAllowance = player1.playerAllowance();
+
+            Console.WriteLine(playerAllowance); 
+
+            Console.WriteLine();
+            Console.WriteLine("1 -");
+            Console.WriteLine("2 -");
+            Console.WriteLine("3 -");
+            Console.WriteLine("4 -");
+            Console.WriteLine("5 -");
+            Console.WriteLine("6 -");
 
             var result = Console.ReadLine();
             /*return*/ Convert.ToInt32(result);
@@ -175,7 +176,8 @@ namespace LemonadeStand
                 days.Add(day);
             }
         }
-       
+
+
     }
 }
     

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-  public class Weather
+    public class Weather
 
-  {
+    {
 
         public Weather()
         {
@@ -19,7 +19,7 @@ namespace LemonadeStand
 
         }
 
-  }
+    }
 
 
 }
