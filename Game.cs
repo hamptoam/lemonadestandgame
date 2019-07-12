@@ -173,47 +173,11 @@ namespace LemonadeStand
             }
         }
 
-        public List<string> ListDays()
+        /*public void List<string> ListDays()
         {
-            List<string> listDays = new List<string>()
-            {
-
-
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
-            listDays.Add("");
+            Console.WriteLine();
         }
-
-
-
-
-        }
+        MAKE THIS HAPPEN OVER WEEKEND*/
         public void GetCustomers()
         {
             
