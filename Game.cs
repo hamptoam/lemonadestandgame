@@ -13,9 +13,11 @@ namespace LemonadeStand
         public Store store;
         public string playerchoice;
         public string forecast;
-        public int dayCounter;
+        public int days;
         public List<Customer> customers;
-        public List<Day> days;
+        public List<Day> daysCounter;
+        public int allowance;
+        public int expenses;
         // and dayLimit or seperate function?
 
         //member construct
@@ -30,11 +32,11 @@ namespace LemonadeStand
         public void RunGame()
         {
             SetUp();
-            for (int i = 0; i < days.Count; i++)
+            for (int i = 0; i < daysCounter.Count; i++)
             { //print player allowance 
-                // menu - store, recipes
+              // menu - store, recipes
 
-             // sell lemonade: set prices
+                // sell lemonade: set prices
             }
 
 
@@ -46,8 +48,9 @@ namespace LemonadeStand
             Console.WriteLine("Hi " + player1.name + " welcome to your lemonade stand!");
             readRules();
             NumberOfDays();
-            GetDays();
+            //GetDays();
             GetCustomers();
+            GameMenu();
         }
 
         public void ChooseName()
@@ -59,22 +62,32 @@ namespace LemonadeStand
 
         public void GameMenu()
         {
-            player1 = new Player();
-            int playerAllowance = player1.playerAllowance();
-
-            Console.WriteLine(playerAllowance); 
-
-            Console.WriteLine();
-            Console.WriteLine("1 -");
-            Console.WriteLine("2 -");
-            Console.WriteLine("3 -");
+            Console.WriteLine("Main Menu");
+            Console.WriteLine("Your allowance is ");
+            Console.WriteLine(playerAllowance());
+            Console.WriteLine("1 - Go to Store");
+            Console.WriteLine("2 -Change Recipe");
+            Console.WriteLine(/*recipe method*/);
+            Console.WriteLine("3 - Check Forecast");
+            Console.WriteLine(/*Forecast Method*/);
             Console.WriteLine("4 -");
             Console.WriteLine("5 -");
-            Console.WriteLine("6 -");
 
             var result = Console.ReadLine();
-            /*return*/ Convert.ToInt32(result);
+            /*return*/
+            Convert.ToInt32(result);
 
+            if (result == "1")
+            {
+                Store store = new Store();
+            }
+        }
+        public int playerAllowance()
+        {
+            allowance = 500;
+
+            int newAllowance = allowance - expenses;
+            return newAllowance;
         }
 
         public void readRules()
@@ -96,8 +109,9 @@ namespace LemonadeStand
                 if (readyToPlay == "boop")
                 {
                     Console.WriteLine("Cool " + player1.name + " Let's squeeze some damn lemons!");
+
                     Console.Clear();
-                    GameMenu();
+                    //  GameMenu()
                 }
 
 
@@ -110,8 +124,6 @@ namespace LemonadeStand
                 }
             }
         }
-
-
 
         public void GoToStore()
         {
@@ -152,7 +164,7 @@ namespace LemonadeStand
 
             else
             {
-                dayCounter = input;
+                GameMenu();
             }
         }
 
@@ -166,18 +178,21 @@ namespace LemonadeStand
             }
 
         }
-
-        public void GetDays()
+    }
+}
+      /*  public void GetDays()
         {
-            for (int i = 0; i < dayCounter; i++)
+            player1 = NumberOfDays();
+            {
+
+            }
+            for (int i = 0; i < ; i++)
             {
                 Day day = new Day();
 
-                days.Add(day);
+                daysCounter++;
             }
         }
-
-
     }
 }
-    
+   */ 

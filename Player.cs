@@ -10,25 +10,26 @@ namespace LemonadeStand
     { //member variables (What does a player have?
         public Inventory inventory;
         public string name;
-        public int startingAllowance;
+        public int allowance;
         public int newAllowance;
         public int expenses;
+        public int storeInput;
         //add more as you can think 
 
         //constructor
         public Player()
         {
-           startingAllowance = 500;
-           startingAllowance = playerAllowance();
+           //startingAllowance = 500;
+           //startingAllowance = playerAllowance();
         }
-       public int playerAllowance()
+      /* public int playerAllowance()
         {
             int newAllowance = startingAllowance - expenses;
             Console.WriteLine("Your allowance is " + newAllowance);
             return newAllowance;
         }
-
-        
+        *trying something brb** 
+        */
 
 
         //member methods 
