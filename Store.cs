@@ -28,10 +28,15 @@ namespace LemonadeStand
         }
 
         public void groceryStore()
-        {
+        { int newTotal = cost;
+
+
+            Console.WriteLine("Now let's buy some stuff");
             GetSugar();
             GetCups();
             GetLemons();
+            Console.WriteLine(cost);
+            Console.WriteLine(player1.allowance - cost);
         }
         public int GetSugar()
         {
@@ -54,11 +59,9 @@ namespace LemonadeStand
             Console.WriteLine("Hint: A jug of lemonade fills about 8 cups");
             Console.WriteLine("How many cups would you like?");
             Console.ReadLine();
-            Console.ReadLine();
             Console.WriteLine(cupCost);
-            total = (cost + cupCost);
+            total = (total + cupCost);
             return GetCups();
-
         }
 
 
@@ -76,7 +79,6 @@ namespace LemonadeStand
             newTotal = (total + lemonCost);
             Console.WriteLine(newTotal);
             return GetLemons();
-
         }
     }
 }

@@ -13,9 +13,10 @@ namespace LemonadeStand
         public Store store;
         public string playerchoice;
         public string forecast;
-        public int days;
+        public int daysCounter;
         public List<Customer> customers;
-        public List<Day> daysCounter;
+        public List<Day> days;
+        public List<Customer> ages;
         public int allowance;
         public int expenses;
         // and dayLimit or seperate function?
@@ -32,9 +33,10 @@ namespace LemonadeStand
         public void RunGame()
         {
             SetUp();
-            for (int i = 0; i < daysCounter.Count; i++)
-            { //print player allowance 
-              // menu - store, recipes
+            for (int i = 0; i < daysCounter; i++)
+            {
+                playerAllowance(); //print player allowance 
+                GameMenu(); // menu - store, recipes
 
                 // sell lemonade: set prices
             }
@@ -48,7 +50,7 @@ namespace LemonadeStand
             Console.WriteLine("Hi " + player1.name + " welcome to your lemonade stand!");
             readRules();
             NumberOfDays();
-            //GetDays();
+            GetDays();
             GetCustomers();
             GameMenu();
         }
@@ -66,6 +68,8 @@ namespace LemonadeStand
             Console.WriteLine("Your allowance is ");
             Console.WriteLine(playerAllowance());
             Console.WriteLine("1 - Go to Store");
+            // when you get back tie the store to this, and 
+            //tie everything together to form the days 
             Console.WriteLine("2 -Change Recipe");
             Console.WriteLine(/*recipe method*/);
             Console.WriteLine("3 - Check Forecast");
@@ -164,35 +168,73 @@ namespace LemonadeStand
 
             else
             {
+                input = daysCounter;
                 GameMenu();
             }
         }
 
+        public List<string> ListDays()
+        {
+            List<string> listDays = new List<string>()
+            {
 
+
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+            listDays.Add("");
+        }
+
+
+
+
+        }
         public void GetCustomers()
         {
+            
             for (int i = 0; i < 100; i++)
             {
                 Customer customer = new Customer();
+                ages.Add(customer);
                 customers.Add(customer);
             }
 
         }
-    }
-}
-      /*  public void GetDays()
-        {
-            player1 = NumberOfDays();
-            {
 
-            }
-            for (int i = 0; i < ; i++)
+        public void GetDays()
+        {
+            for (int i = 0; i < daysCounter; i++)
             {
                 Day day = new Day();
-
+                days.Add(day); 
                 daysCounter++;
             }
         }
     }
 }
-   */ 
+   

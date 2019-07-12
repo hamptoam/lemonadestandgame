@@ -11,9 +11,10 @@ namespace LemonadeStand
 
         public int priceMax;
         public int prices;
-        List<string> weatherPrefs;
+        public List<string> weatherPrefs;
         public string weatherPref;
-        List<string> ages; //= new string>();
+        public List<string> ages; //= new string>();
+        public List<string> customers;
         public int age;
 
         public Customer()
