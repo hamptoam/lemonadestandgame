@@ -10,20 +10,22 @@ namespace LemonadeStand
     {
 
         public int priceMax;
-        public List<string> prices;
+        public int[] prices;
         public List<string> weather;
         public string weatherPref;
         public List<string> ages; //= new string>();
         public List<string> customers;
         public int age;
+        public int price;
 
         public Customer()
         {
-             //new List<string> { "Child", "Teenager", "Adult", "Old" };
-           age = GetAge();
-           weatherPref = GetWeather();
-          // priceMax = GetPrice(); //find and fix issue 
-                                   //(keep) prices = GetPrice();
+            //new List<string> { "Child", "Teenager", "Adult", "Old" };
+            age = GetAge();
+            weatherPref = GetWeather();
+            prices = new int[] { 25, 50, 75, 100, 125 };
+            // priceMax = GetPrice(); //find and fix issue 
+            //(keep) prices = GetPrice();
         }
 
 
@@ -42,15 +44,13 @@ namespace LemonadeStand
             return weather[num];
         }
 
-      //  public static int GetPrice()
-        //{
-          //  public int[] Prices = new int[] { 25, 50, 75, 100, 125 };
-            //Random r = new Random();
-            //int prices  = r.Next(0, Prices.count);
-            
-        // YOU WILL FIGURE OUT THE PRICES}
-     
+        public void GetPrice()
+        {
+            Random r = new Random();
+            price = r.Next(0, prices.Length);
+        }
     }
 }
+
 
    
