@@ -13,14 +13,22 @@ namespace LemonadeStand
         public int lemons;
         public int sugar;
         public int ice;
-        public int input;
+        public int dailyCups;
+        public int input1;
+        public int input2;
+        public int input3;
+        public int input4;
         public int price;
-
+        
 
         public Recipe(Player player)
         {
             player1 = player;
-          //  recipe = MakeRecipe();
+            input1 = dailyCups;
+            input2 = ice;
+            input3 = lemons;
+            input4 = sugar;
+            MakeRecipe();
           //Making list to display each item in the recipe to use for in game use as well 
         }
 
@@ -38,14 +46,36 @@ namespace LemonadeStand
             Console.ReadKey();
             Console.Clear();
             Console.WriteLine("How many cups would you like to make?");
-            input = Convert.ToInt32(Console.ReadLine());
+            input1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("How many ice cubes would you like to use per cup?");
-            input = Convert.ToInt32(Console.ReadLine());
+            input2 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("How many lemons would you like to use per jug?");
-            input = Convert.ToInt32(Console.ReadLine());
+            input3 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("How many cups of sugar would you like to use per jug?");
-            input = Convert.ToInt32(Console.ReadLine());
-
+            input4 = Convert.ToInt32(Console.ReadLine());
         }
+
+        public void DailyRecipe()
+        {
+
+            Console.WriteLine(input1 + " cups total of lemonade for the day");
+            Console.WriteLine(input2 + " ice cubes per cup");
+            Console.WriteLine(input3 + " lemons per jug");
+            Console.WriteLine(input4 + " cups of sugar per jug");
+        }
+        /*public string GameRecipe()
+        {
+            for (int i = 0; i < daysCounter; i++)
+            {
+                Day day = new Day();
+
+                List<string> dailyRecipe = new List<string>();
+
+
+        **I'm thinking maybe call DailyRecipe() for every day in the day or game class 
+        * ask will
+            }
+
+        } */
     }
 }

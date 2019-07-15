@@ -10,6 +10,8 @@ namespace LemonadeStand
     {
         public Player player1;
         public int cost;
+        public int newAllowance;
+        public int totalCost;
         public int input;
         public int total;
         public int newTotal;
@@ -24,37 +26,41 @@ namespace LemonadeStand
         public Store(Player player1)
         {
             this.player1 = player1;
-            sugar = GetSugar();
-            lemons = GetLemons();
-            cups = GetCups();
-            ice = GetIce();
-
-
+            groceryStore();
         }
 
-       
-
         public void groceryStore()
-        { int newTotal = 0;
+        {
+            int newTotal = 0;
+            int totalcost = newTotal;
+            int newAllowance = (player1.allowance - newTotal); 
 
             Console.WriteLine("Welcome to the store!");
             Console.WriteLine("Here you will buy your sugar, lemons, and cups.");
             Console.WriteLine("Feel free to stop in as often as you would like.");
             Console.WriteLine("Now let's buy some stuff");
+
             newTotal += GetSugar();
             Console.WriteLine(newTotal);
+            Console.Clear();
             newTotal += GetCups();
             Console.WriteLine(newTotal);
+            Console.Clear();
             newTotal += GetLemons();
             Console.WriteLine(newTotal);
-            Console.WriteLine(cost);
-            Console.WriteLine(player1.allowance - cost);
+            Console.Clear();
+            newTotal += GetIce();
+            Console.WriteLine(newTotal);
+
+            Console.WriteLine(totalcost);
+            Console.WriteLine(newAllowance);
+
         }
         public int GetSugar()
         {
             Console.WriteLine("Sugar is 50 cents a pound.");
             Console.WriteLine("Hint: One pound of sugar is about 2 cups");
-            Console.WriteLine("How many cups of sugar would you like?");
+            Console.WriteLine("How many pounds of sugar would you like?");
 
             input = Convert.ToInt32(Console.ReadLine());
             int sugar = input;

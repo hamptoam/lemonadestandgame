@@ -11,20 +11,19 @@ namespace LemonadeStand
 
         public int pricemax;
         public int[] prices;
-        public List<string> weather;
-        public string weatherPref;
         public List<string> ages; //= new string>();
         public List<string> customers;
         public int age;
         public int price;
 
-        public Customer()
+        public Customer(Weather weather)
         {
             //new List<string> { "Child", "Teenager", "Adult", "Old" };
-            age = GetAge();
-         //   weatherPref = GetWeatherPref(); // ask will 
+            GetAge(); //age groups 
+            GetPrice(); //pricemax
+            WeatherPref(weather); // ask will 
             prices = new int[] { 25, 50, 75, 100, 125 };
-            pricemax = GetPrice(); 
+            
             //(keep) prices = GetPrice();
         }
 
@@ -45,8 +44,47 @@ namespace LemonadeStand
             price = r.Next(0, prices.Length);
             return price;
         }
+
+
+
+        public void WeatherPref(Weather weather)
+        {
+            // days++;
+            // GetWeather();
+            int dayWeather = weather.GetWeather();
+
+        List<string> customerPref = new List<string>();
+
+            Console.WriteLine("The customer prefers");
+
+            if (dayWeather == 0)
+            {
+                Console.WriteLine(" Sunny and hot, 80 degrees");
+            }
+
+            else if (dayWeather == 1)
+            {
+                Console.WriteLine(" Sunny and fair, 65 degrees");
+            }
+
+            else if (dayWeather == 2)
+            {
+                Console.WriteLine(" Cloudy and fair, 60 degrees");
+            }
+            else if (dayWeather == 3)
+            {
+                Console.WriteLine(" Scattered storms, 75 degrees");
+            }
+            else if (dayWeather == 4)
+            {
+                Console.WriteLine(" Cold and rainy, 50 degrees");
+            }
+            else Console.WriteLine("");
+        }
     }
 }
+    
+
 
 
    

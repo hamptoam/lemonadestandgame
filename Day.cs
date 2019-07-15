@@ -9,13 +9,18 @@ namespace LemonadeStand
     public class Day
     {
         public Weather weather;
+        public Recipe recipe;
+        public Day day;
         /*public int supply;
         public string demand;*/
 
-        public Day()
+        public Day(Player player)
         {
-            Day day = new Day();
-            weather = new Weather(); 
+            weather = new Weather(player);
+            recipe = new Recipe(player);
+
+            weather.GetWeather(); 
+
         } 
 
 

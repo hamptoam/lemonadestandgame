@@ -9,6 +9,7 @@ namespace LemonadeStand
     public class Player
     { //member variables (What does a player have?
         public Inventory inventory;
+        public Recipe recipe;
         public string name;
         public int allowance;
         public int newAllowance;

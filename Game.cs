@@ -100,11 +100,12 @@ namespace LemonadeStand
             {
                 Weather weather = new Weather(player1);
                 weather.WeeklyForecast();
+
             }
             else if (result == "4")
             {
                 // run game 
-                // run game
+               
             }
 
             Console.WriteLine("Are you ready? Type 'boop' to continue.");
@@ -227,7 +228,7 @@ namespace LemonadeStand
 
             for (int i = 0; i < daysCounter; i++)
             {
-                Day day = new Day();
+                Day day = new Day(player1);
                 days.Add(day);
 
                 //daysCounter++;

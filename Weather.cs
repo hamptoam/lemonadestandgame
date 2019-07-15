@@ -12,29 +12,31 @@ namespace LemonadeStand
         public Player player1;
         public int weather;
         public string forecast;
+        Random patterns;
 
         public Weather(Player player1)
         {
-
+            patterns = new Random();
             this.player1 = player1;
             weather = GetWeather();
-            forecast = WeeklyForecast();
+            // forecast = WeeklyForecast();
 
         }
 
         public int GetWeather()
         {
-            Random patterns = new Random();
+
             return patterns.Next(0, 4);
         }
 
-        public string WeeklyForecast()
+        public void WeeklyForecast()
         {
+            List<string> Forecasts = new List<string>();
 
             for (int i = 0; i < 7; i++)
             {
 
-                Day day = new Day();
+                Day day = new Day(player1);
 
                 List<string> WeatherPatterns = new List<string>();
 
@@ -43,54 +45,22 @@ namespace LemonadeStand
                 WeatherPatterns.Add("Cloudy and fair, 60 degrees");
                 WeatherPatterns.Add("Scattered storms, 75 degrees");
                 WeatherPatterns.Add("Cold and rainy, 50 degrees");
+                int selectedPattern = patterns.Next(0, 5);
 
+                Forecasts.Add(WeatherPatterns[selectedPattern]);
+
+                Console.WriteLine("Day " + (i + 1) + "; " + Forecasts[i]);
 
             }
 
-            return forecast;
+
         }
 
-        public string GetWeatherPref()
-        {
-            // days++;
-            int dayWeather = GetWeather();
 
-            Console.WriteLine("The customer prefers");
-
-            if (dayWeather == 0)
-            {
-                return (" Sunny and hot, 80 degrees");
-            }
-
-            else if (dayWeather == 1)
-            {
-                return (" Sunny and fair, 65 degrees");
-            }
-
-            else if (dayWeather == 2)
-            {
-                return (" Cloudy and fair, 60 degrees");
-            }
-            else if (dayWeather == 3)
-            {
-                return (" Scattered storms, 75 degrees");
-            }
-            else if (dayWeather == 4)
-            {
-                return (" Cold and rainy, 50 degrees");
-            }
-            else return "";
-        }
     }
+
+
 }
-
-
-
-   
-
-        
-
-    
 
 
 
