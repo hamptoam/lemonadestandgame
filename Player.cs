@@ -14,27 +14,16 @@ namespace LemonadeStand
         public int newAllowance;
         public int expenses;
         public int storeInput;
+        
         //add more as you can think 
 
         //constructor
         public Player()
         {
-           //startingAllowance = 500;
-           //startingAllowance = playerAllowance();
+           
+   
+
         }
-      /* public int playerAllowance()
-        {
-            int newAllowance = startingAllowance - expenses;
-            Console.WriteLine("Your allowance is " + newAllowance);
-            return newAllowance;
-        }
-        *trying something brb** 
-        */
-
-
-        //member methods 
-
-       // abstract public string chooseOption();
 
 
     }

@@ -9,14 +9,19 @@ namespace LemonadeStand
     public class Weather
 
     {
-
-        public int WeeklyForecast()
+        int GetWeather(int min, int max)
         {
-             int GetWeather(int min, int max)
-            {
-                Random patterns = new Random();
-                return patterns.Next(min, max);
-            }
+            Random patterns = new Random();
+            return patterns.Next(min, max);
+        }
+
+        public void WeeklyForecast()
+        {
+
+
+
+            Day day = new Day();
+
             List<string> WeatherPatterns = new List<string>();
             
                 WeatherPatterns.Add("Sunny and hot, 80 degrees");
@@ -27,7 +32,13 @@ namespace LemonadeStand
             
             for (int i = 0; i < 7; i++)
             {
+               // days++;
+                int dayWeather = GetWeather(0, 4);
 
+                if (dayWeather == 0)
+                {
+
+                }
             }
 
         }

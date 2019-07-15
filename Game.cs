@@ -175,14 +175,14 @@ namespace LemonadeStand
             }
         }
 
-        public void List<string>ListDays()
+       /* public List<string> ListDays()
         {
             for (int i = 0; i < 100; i++)
             {
                 Day day = new Day();
 
             }
-        }
+        } Finish list of strings */
         
         public void GetCustomers()
         {
@@ -192,7 +192,7 @@ namespace LemonadeStand
                 Customer customer = new Customer();
                 ages.Add(customer);
                 customers.Add(customer);
-                pricemax.Add(customer); //dont know why this isnt working 
+               // Already gave it a value customer.pricemax.Add(); //dont know why this isnt working 
             }
 
         }

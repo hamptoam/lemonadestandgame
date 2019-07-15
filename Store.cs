@@ -17,6 +17,7 @@ namespace LemonadeStand
         public int sugar;
         public int cups;
         public int lemons;
+        public int ice;
 
 
 
@@ -38,7 +39,7 @@ namespace LemonadeStand
             Console.WriteLine(cost);
             Console.WriteLine(player1.allowance - cost);
         }
-        public int GetSugar()
+        public void GetSugar()
         {
             int sugar = player1.storeInput;
             int cost = 50 * sugar;
@@ -49,9 +50,11 @@ namespace LemonadeStand
             Console.ReadLine();
             Console.WriteLine(cost);
             cost = total;
-            return GetSugar();
+            player1.inventory.AddSugar(sugar);
+            
+            
         }
-        public int GetCups()
+        public void GetCups()
         {
             int cups = player1.storeInput;
             int cupCost = 10 * cups;
@@ -61,12 +64,10 @@ namespace LemonadeStand
             Console.ReadLine();
             Console.WriteLine(cupCost);
             total = (total + cupCost);
-            return GetCups();
+            player1.inventory.AddCups(cups);
         }
 
-
-
-        public int GetLemons()
+        public void GetLemons()
         {
             int lemons = player1.storeInput;
             int lemonCost = 10 * lemons;
@@ -78,7 +79,17 @@ namespace LemonadeStand
             Console.WriteLine(lemonCost);
             newTotal = (total + lemonCost);
             Console.WriteLine(newTotal);
-            return GetLemons();
+            player1.inventory.AddLemons(lemons);
+        }
+
+        public void GetIce()
+        {
+            int icecube = player1.storeInput;
+            int iceCost = 1 * icecube;
+            Console.WriteLine("Ice cubes are 1 cent each.");
+            Console.WriteLine("Hint: A cup of lemonade has about 3 ice cubes");
+            Console.WriteLine("How many ice cubes would you like?");
+            player1.inventory.AddIce(icecube);
         }
     }
 }
