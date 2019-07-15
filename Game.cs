@@ -11,12 +11,14 @@ namespace LemonadeStand
         //member variables (What does this game have?)
         public Player player1;
         public Store store;
+        public Weather weather; 
         public string playerchoice;
         public string forecast;
         public int daysCounter;
         public List<Customer> customers;
         public List<Day> days;
         public List<Customer> ages;
+        //public Customer pricemax; 
         public int allowance;
         public int expenses;
         // and dayLimit or seperate function?
@@ -73,7 +75,7 @@ namespace LemonadeStand
             Console.WriteLine("2 -Change Recipe");
             Console.WriteLine(/*recipe method*/);
             Console.WriteLine("3 - Check Forecast");
-            Console.WriteLine(/*Forecast Method*/);
+            Console.WriteLine("recipies");
             Console.WriteLine("4 -");
             Console.WriteLine("5 -");
 
@@ -173,11 +175,15 @@ namespace LemonadeStand
             }
         }
 
-        /*public void List<string> ListDays()
+        public void List<string>ListDays()
         {
-            Console.WriteLine();
+            for (int i = 0; i < 100; i++)
+            {
+                Day day = new Day();
+
+            }
         }
-        MAKE THIS HAPPEN OVER WEEKEND*/
+        
         public void GetCustomers()
         {
             
@@ -186,18 +192,26 @@ namespace LemonadeStand
                 Customer customer = new Customer();
                 ages.Add(customer);
                 customers.Add(customer);
+                pricemax.Add(customer); //dont know why this isnt working 
             }
 
         }
 
         public void GetDays()
         {
+            
             for (int i = 0; i < daysCounter; i++)
             {
                 Day day = new Day();
-                days.Add(day); 
-                daysCounter++;
+                days.Add(day);
+             
+                //daysCounter++;
             }
+           // for (int i = 0; i < daysCounter; i++)
+            //{
+             //   Weather weather = new Weather();
+              //  days.Add(weather);
+            //}
         }
     }
 }

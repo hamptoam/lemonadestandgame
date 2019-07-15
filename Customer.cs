@@ -9,7 +9,7 @@ namespace LemonadeStand
     public class Customer
     {
 
-        public int priceMax;
+        public int pricemax;
         public int[] prices;
         public List<string> weather;
         public string weatherPref;
@@ -24,7 +24,7 @@ namespace LemonadeStand
             age = GetAge();
             weatherPref = GetWeather();
             prices = new int[] { 25, 50, 75, 100, 125 };
-            // priceMax = GetPrice(); //find and fix issue 
+            priceMax = GetPrice(); 
             //(keep) prices = GetPrice();
         }
 
@@ -37,17 +37,13 @@ namespace LemonadeStand
             return customerages;
         }
 
-        public string GetWeather()
-        {
-            Random r = new Random();
-            int num = r.Next(0, weather.Count);
-            return weather[num];
-        }
 
-        public void GetPrice()
+        public int GetPrice()
         {
+            price = pricemax;
             Random r = new Random();
             price = r.Next(0, prices.Length);
+            return price;
         }
     }
 }

@@ -10,16 +10,35 @@ namespace LemonadeStand
 
     {
 
-        public Weather()
+        public int WeeklyForecast()
         {
-            //public <List> weather;
-            //weather = new List<string> { "Sunny and hot, 80 degrees", "Sunny and fair, 65 degrees", "Cloudy and fair, 60 degrees", "Scattered storms, 75 degrees", "Cold and rainy, 50 degrees" };
+             int GetWeather(int min, int max)
+            {
+                Random patterns = new Random();
+                return patterns.Next(min, max);
+            }
+            List<string> WeatherPatterns = new List<string>();
+            
+                WeatherPatterns.Add("Sunny and hot, 80 degrees");
+                WeatherPatterns.Add("Sunny and fair, 65 degrees");
+                WeatherPatterns.Add("Cloudy and fair, 60 degrees");
+                WeatherPatterns.Add("Scattered storms, 75 degrees");
+                WeatherPatterns.Add("Cold and rainy, 50 degrees");
+            
+            for (int i = 0; i < 7; i++)
+            {
 
-            //Figure out these errors as well over weekend 
+            }
 
         }
 
+        
     }
-
-
+    //Figure out these errors as well over weekend 
 }
+        
+
+    
+
+
+
