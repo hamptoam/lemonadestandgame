@@ -14,6 +14,7 @@ namespace LemonadeStand
 
         public Day()
         {
+            Day day = new Day();
             weather = new Weather(); 
         } 
 

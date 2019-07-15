@@ -14,17 +14,14 @@ namespace LemonadeStand
         public int newAllowance;
         public int expenses;
         public int storeInput;
-        
+
         //add more as you can think 
 
         //constructor
         public Player()
         {
-           
-   
+            inventory = new Inventory();
 
         }
-
-
     }
 }

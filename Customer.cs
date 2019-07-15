@@ -22,7 +22,7 @@ namespace LemonadeStand
         {
             //new List<string> { "Child", "Teenager", "Adult", "Old" };
             age = GetAge();
-            //weatherPref = GetWeather();
+         //   weatherPref = GetWeatherPref(); // ask will 
             prices = new int[] { 25, 50, 75, 100, 125 };
             pricemax = GetPrice(); 
             //(keep) prices = GetPrice();

@@ -11,7 +11,8 @@ namespace LemonadeStand
         //member variables (What does this game have?)
         public Player player1;
         public Store store;
-        public Weather weather; 
+        public Weather weather;
+        public Day day;
         public string playerchoice;
         public string forecast;
         public int daysCounter;
@@ -28,6 +29,8 @@ namespace LemonadeStand
         public Game()
         {
             player1 = new Player();
+            ages = new List<Customer>();
+            customers = new List<Customer>();
         }
 
         //member methods
@@ -52,9 +55,8 @@ namespace LemonadeStand
             Console.WriteLine("Hi " + player1.name + " welcome to your lemonade stand!");
             readRules();
             NumberOfDays();
-            GetDays();
+            GetDays(); //
             GetCustomers();
-            GameMenu();
         }
 
         public void ChooseName()
@@ -75,9 +77,9 @@ namespace LemonadeStand
             Console.WriteLine("2 -Change Recipe");
             Console.WriteLine(/*recipe method*/);
             Console.WriteLine("3 - Check Forecast");
-            Console.WriteLine("recipies");
-            Console.WriteLine("4 -");
-            Console.WriteLine("5 -");
+            Console.WriteLine("4 - Go to Game");
+      
+
 
             var result = Console.ReadLine();
             /*return*/
@@ -85,8 +87,29 @@ namespace LemonadeStand
 
             if (result == "1")
             {
-                Store store = new Store();
+
+                Store store = new Store(player1);
+                store.groceryStore();
             }
+            else if (result == "2")
+            {
+                Recipe recipe = new Recipe(player1);
+                // create recipe method and plant here 
+            }
+            else if (result == "3")
+            {
+                Weather weather = new Weather(player1);
+                weather.WeeklyForecast();
+            }
+            else if (result == "4")
+            {
+                // run game 
+                // run game
+            }
+
+            Console.WriteLine("Are you ready? Type 'boop' to continue.");
+            string readyToPlay = Console.ReadLine();
+            Console.Clear();
         }
         public int playerAllowance()
         {
@@ -175,43 +198,40 @@ namespace LemonadeStand
             }
         }
 
-       /* public List<string> ListDays()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                Day day = new Day();
+        /* public List<string> ListDays()
+         {
+             for (int i = 0; i < 100; i++)
+             {
+                 Day day = new Day();
 
-            }
-        } Finish list of strings */
-        
+             }
+         } Finish list of strings */
+
         public void GetCustomers()
         {
-            
+
             for (int i = 0; i < 100; i++)
             {
                 Customer customer = new Customer();
                 ages.Add(customer);
                 customers.Add(customer);
-               // Already gave it a value customer.pricemax.Add(); //dont know why this isnt working 
+                // Already gave it a value customer.pricemax.Add(); //dont know why this isnt working 
             }
 
         }
 
+
+
         public void GetDays()
         {
-            
+
             for (int i = 0; i < daysCounter; i++)
             {
                 Day day = new Day();
                 days.Add(day);
-             
+
                 //daysCounter++;
             }
-           // for (int i = 0; i < daysCounter; i++)
-            //{
-             //   Weather weather = new Weather();
-              //  days.Add(weather);
-            //}
         }
     }
 }

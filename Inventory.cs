@@ -16,7 +16,7 @@ namespace LemonadeStand
 
         public Inventory()
 
-        {   store = new Store();
+        {  
             poundsSugar = 0;
             quantityLemons = 0;
             quantityCups = 0;

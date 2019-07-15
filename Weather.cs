@@ -9,44 +9,85 @@ namespace LemonadeStand
     public class Weather
 
     {
-        int GetWeather(int min, int max)
+        public Player player1;
+        public int weather;
+        public string forecast;
+
+        public Weather(Player player1)
         {
-            Random patterns = new Random();
-            return patterns.Next(min, max);
+
+            this.player1 = player1;
+            weather = GetWeather();
+            forecast = WeeklyForecast();
+
         }
 
-        public void WeeklyForecast()
+        public int GetWeather()
+        {
+            Random patterns = new Random();
+            return patterns.Next(0, 4);
+        }
+
+        public string WeeklyForecast()
         {
 
+            for (int i = 0; i < 7; i++)
+            {
 
+                Day day = new Day();
 
-            Day day = new Day();
+                List<string> WeatherPatterns = new List<string>();
 
-            List<string> WeatherPatterns = new List<string>();
-            
                 WeatherPatterns.Add("Sunny and hot, 80 degrees");
                 WeatherPatterns.Add("Sunny and fair, 65 degrees");
                 WeatherPatterns.Add("Cloudy and fair, 60 degrees");
                 WeatherPatterns.Add("Scattered storms, 75 degrees");
                 WeatherPatterns.Add("Cold and rainy, 50 degrees");
-            
-            for (int i = 0; i < 7; i++)
-            {
-               // days++;
-                int dayWeather = GetWeather(0, 4);
 
-                if (dayWeather == 0)
-                {
 
-                }
             }
 
+            return forecast;
         }
 
-        
+        public string GetWeatherPref()
+        {
+            // days++;
+            int dayWeather = GetWeather();
+
+            Console.WriteLine("The customer prefers");
+
+            if (dayWeather == 0)
+            {
+                return (" Sunny and hot, 80 degrees");
+            }
+
+            else if (dayWeather == 1)
+            {
+                return (" Sunny and fair, 65 degrees");
+            }
+
+            else if (dayWeather == 2)
+            {
+                return (" Cloudy and fair, 60 degrees");
+            }
+            else if (dayWeather == 3)
+            {
+                return (" Scattered storms, 75 degrees");
+            }
+            else if (dayWeather == 4)
+            {
+                return (" Cold and rainy, 50 degrees");
+            }
+            else return "";
+        }
     }
-    //Figure out these errors as well over weekend 
 }
+
+
+
+   
+
         
 
     
