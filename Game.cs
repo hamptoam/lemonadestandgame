@@ -13,12 +13,12 @@ namespace LemonadeStand
         public Store store;
         public Weather weather;
         public Day day;
+        public Recipe recipe;
         public string playerchoice;
         public string forecast;
         public int daysCounter;
         public List<Customer> customers;
         public List<Day> days;
-        public List<Customer> ages;
         //public Customer pricemax; 
         public int allowance;
         public int expenses;
@@ -29,7 +29,6 @@ namespace LemonadeStand
         public Game()
         {
             player1 = new Player();
-            ages = new List<Customer>();
             customers = new List<Customer>();
         }
 
@@ -75,10 +74,10 @@ namespace LemonadeStand
             // when you get back tie the store to this, and 
             //tie everything together to form the days 
             Console.WriteLine("2 -Change Recipe");
-            Console.WriteLine(/*recipe method*/);
+            recipe.MakeRecipe();
             Console.WriteLine("3 - Check Forecast");
             Console.WriteLine("4 - Go to Game");
-      
+
 
 
             var result = Console.ReadLine();
@@ -105,7 +104,7 @@ namespace LemonadeStand
             else if (result == "4")
             {
                 // run game 
-               
+
             }
 
             Console.WriteLine("Are you ready? Type 'boop' to continue.");
@@ -114,7 +113,7 @@ namespace LemonadeStand
         }
         public int playerAllowance()
         {
-            allowance = 500;
+            allowance = 1000;
 
             int newAllowance = allowance - expenses;
             return newAllowance;
@@ -211,17 +210,17 @@ namespace LemonadeStand
         public void GetCustomers()
         {
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 50; i++)
             {
-                Customer customer = new Customer();
-                ages.Add(customer);
-                customers.Add(customer);
-                // Already gave it a value customer.pricemax.Add(); //dont know why this isnt working 
+                //  Customer customer = new Customer();
+
+                customers.Add(new Customer(weather));
+                //  makeCustomers.Add(WeatherPref);
+                // Already gave it a value customer.pricemax.Add(); //dont know why this isnt 
+           //     if (weatherPref.selectedPattern = ("Sunny and hot, 80 degrees")
             }
-
-        }
-
-
+        }             //Hi Nevin, biggest thing I have to finish is putting together the customer preferences ^^ and setting up adding and subtracting from
+        //the allowance and tying everything together
 
         public void GetDays()
         {
@@ -231,9 +230,15 @@ namespace LemonadeStand
                 Day day = new Day(player1);
                 days.Add(day);
 
+
                 //daysCounter++;
+
+
             }
+
         }
+
     }
+
 }
    

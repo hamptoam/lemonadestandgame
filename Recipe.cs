@@ -28,7 +28,7 @@ namespace LemonadeStand
             input2 = ice;
             input3 = lemons;
             input4 = sugar;
-            MakeRecipe();
+            //MakeRecipe();
           //Making list to display each item in the recipe to use for in game use as well 
         }
 
@@ -63,6 +63,7 @@ namespace LemonadeStand
             Console.WriteLine(input3 + " lemons per jug");
             Console.WriteLine(input4 + " cups of sugar per jug");
         }
+
         /*public string GameRecipe()
         {
             for (int i = 0; i < daysCounter; i++)

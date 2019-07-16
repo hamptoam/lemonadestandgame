@@ -15,16 +15,16 @@ namespace LemonadeStand
         public List<string> customers;
         public int age;
         public int price;
-
+        public Recipe recipe;
+        
         public Customer(Weather weather)
         {
             //new List<string> { "Child", "Teenager", "Adult", "Old" };
-            GetAge(); //age groups 
-            GetPrice(); //pricemax
-            WeatherPref(weather); // ask will 
-            prices = new int[] { 25, 50, 75, 100, 125 };
-            
+            age = GetAge(); //age groups 
+            pricemax = GetPrice(); //pricemax
+            WeatherPref(weather);
             //(keep) prices = GetPrice();
+         //   recipe = DailyRecipe();
         }
 
 
@@ -38,16 +38,16 @@ namespace LemonadeStand
 
 
         public int GetPrice()
-        {
-            price = pricemax;
+        { 
+            int[] prices = new int[] { 10, 25, 50, 75, 100 };
             Random r = new Random();
             price = r.Next(0, prices.Length);
             return price;
         }
+        
 
 
-
-        public void WeatherPref(Weather weather)
+    public void WeatherPref(Weather weather)
         {
             // days++;
             // GetWeather();
@@ -82,6 +82,12 @@ namespace LemonadeStand
             else Console.WriteLine("");
         }
     }
+    /*public void recipePref()
+    {
+        DailyRecipe()
+    }
+    Get everything else done then worry about recipe 
+    */
 }
     
 
