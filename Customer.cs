@@ -16,18 +16,16 @@ namespace LemonadeStand
         public int age;
         public int price;
         public Recipe recipe;
-        
-        public Customer(Weather weather)
+        public int weatherpref;
+        public int recipepref;
+
+        public Customer()
         {
-            //new List<string> { "Child", "Teenager", "Adult", "Old" };
-            age = GetAge(); //age groups 
-            pricemax = GetPrice(); //pricemax
-            WeatherPref(weather);
-            //(keep) prices = GetPrice();
-         //   recipe = DailyRecipe();
+            age = GetAge(); 
+            pricemax = GetPrice(); 
+            recipepref = recipePref();
+            
         }
-
-
         public static int GetAge()
         {
             int[] ages = new int[] { 6, 12, 18, 30, 50 };
@@ -35,60 +33,76 @@ namespace LemonadeStand
             int customerages = ages[ran.Next(0, ages.Length)];
             return customerages;
         }
-
-
         public int GetPrice()
-        { 
+        {
             int[] prices = new int[] { 10, 25, 50, 75, 100 };
             Random r = new Random();
             price = r.Next(0, prices.Length);
             return price;
         }
-        
-
-
-    public void WeatherPref(Weather weather)
+        public int WeatherPref(Weather weather)
         {
-            // days++;
-            // GetWeather();
-            int dayWeather = weather.GetWeather();
+            weather.GetWeather();
 
-        List<string> customerPref = new List<string>();
-
-            Console.WriteLine("The customer prefers");
-
-            if (dayWeather == 0)
+            foreach (var Customer in customers)
             {
-                Console.WriteLine(" Sunny and hot, 80 degrees");
+                if (weather.weather == 0)
+                {
+                    Console.WriteLine(" Sunny and hot, 80 degrees");
+                }
+                else if (weather.weather == 1)
+                {
+                    Console.WriteLine(" Sunny and fair, 65 degrees");
+                    return weather.weather;
+                }
+                else if (weather.weather == 2)
+                {
+                    Console.WriteLine(" Cloudy and fair, 60 degrees");
+                    return weather.weather;
+                }
+                else if (weather.weather == 3)
+                {
+                    Console.WriteLine(" Scattered storms, 75 degrees");
+                    return weather.weather;
+                }
+                else if (weather.weather == 4)
+                {
+                    Console.WriteLine("Cold and rainy, 50 degrees");
+                    return weather.weather;
+                }
+                else Console.WriteLine("");
+                return weather.weather;
             }
 
-            else if (dayWeather == 1)
-            {
-                Console.WriteLine(" Sunny and fair, 65 degrees");
-            }
+            return weather.weather;
+        }
+        public enum recipePreferences
+        {
 
-            else if (dayWeather == 2)
-            {
-                Console.WriteLine(" Cloudy and fair, 60 degrees");
-            }
-            else if (dayWeather == 3)
-            {
-                Console.WriteLine(" Scattered storms, 75 degrees");
-            }
-            else if (dayWeather == 4)
-            {
-                Console.WriteLine(" Cold and rainy, 50 degrees");
-            }
-            else Console.WriteLine("");
+
+
+
+
+
+        }
+        public Random recipePref(Recipe recipe)
+        {
+            Random r = new Random();
+
+
+
+
+            int selectedprefference = r.Next(0, 5);
+
+
+            return r; 
+
+
         }
     }
-    /*public void recipePref()
-    {
-        DailyRecipe()
-    }
-    Get everything else done then worry about recipe 
-    */
 }
+    
+
     
 
 

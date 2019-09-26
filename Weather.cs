@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace LemonadeStand
 {
     public class Weather
 
     {
+        public Customer customer;
         public Player player1;
         public int weather;
         public string forecast;
@@ -26,7 +28,7 @@ namespace LemonadeStand
         public int GetWeather()
         {
 
-            return patterns.Next(0, 4);
+            return patterns.Next(0, 5);
         }
 
         public void WeeklyForecast()
@@ -49,16 +51,13 @@ namespace LemonadeStand
 
                 Forecasts.Add(WeatherPatterns[selectedPattern]);
 
-                Console.WriteLine("Day " + (i + 1) + "; " + Forecasts[i]);
+                Console.WriteLine("Day " + (i + 1) + " ; " + Forecasts[i]);
 
             }
 
-
         }
 
-
     }
-
 
 }
 

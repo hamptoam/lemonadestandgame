@@ -9,6 +9,7 @@ namespace LemonadeStand
     public class Store
     {
         public Player player1;
+        public Inventory inventory;
         public int cost;
         public int newAllowance;
         public int totalCost;
@@ -38,7 +39,7 @@ namespace LemonadeStand
             Console.WriteLine("Welcome to the store!");
             Console.WriteLine("Here you will buy your sugar, lemons, and cups.");
             Console.WriteLine("Feel free to stop in as often as you would like.");
-            Console.WriteLine("Now let's buy some stuff");
+            Console.WriteLine("Now let's buy some stuff.");
 
             newTotal += GetSugar();
             Console.WriteLine(newTotal);

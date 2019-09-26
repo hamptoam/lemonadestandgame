@@ -39,13 +39,13 @@ namespace LemonadeStand
             SetUp();
             for (int i = 0; i < daysCounter; i++)
             {
-                playerAllowance(); //print player allowance 
+
+                playerAllowance(); //print player allowance
                 GameMenu(); // menu - store, recipes
+                Weather weather = new Weather(player1);
+                Recipe recipe = new Recipe(player1);
 
-                // sell lemonade: set prices
             }
-
-
         }
 
         public void SetUp()
@@ -54,8 +54,6 @@ namespace LemonadeStand
             Console.WriteLine("Hi " + player1.name + " welcome to your lemonade stand!");
             readRules();
             NumberOfDays();
-            GetDays(); //
-            GetCustomers();
         }
 
         public void ChooseName()
@@ -71,10 +69,7 @@ namespace LemonadeStand
             Console.WriteLine("Your allowance is ");
             Console.WriteLine(playerAllowance());
             Console.WriteLine("1 - Go to Store");
-            // when you get back tie the store to this, and 
-            //tie everything together to form the days 
             Console.WriteLine("2 -Change Recipe");
-            recipe.MakeRecipe();
             Console.WriteLine("3 - Check Forecast");
             Console.WriteLine("4 - Go to Game");
 
@@ -93,7 +88,7 @@ namespace LemonadeStand
             else if (result == "2")
             {
                 Recipe recipe = new Recipe(player1);
-                // create recipe method and plant here 
+                recipe.MakeRecipe();
             }
             else if (result == "3")
             {
@@ -103,7 +98,7 @@ namespace LemonadeStand
             }
             else if (result == "4")
             {
-                // run game 
+                RunGame();
 
             }
 
@@ -163,21 +158,20 @@ namespace LemonadeStand
 
             if (yesorNo == "y")
             {
-
-
+                Store store = new Store(player1);
             }
 
             else if (yesorNo == "n")
             {
-
-
+                GameMenu();
             }
         }
-        public void NumberOfDays()
+        public int NumberOfDays()
         {
+
             Console.WriteLine("How many days would you like to play? Min. 7, Max 28.");
             int input = int.Parse(Console.ReadLine());
-
+            input = daysCounter;
 
             if (input < 7)
             {
@@ -194,51 +188,27 @@ namespace LemonadeStand
             else
             {
                 input = daysCounter;
-                GameMenu();
+
+                for (int i = 0; i < daysCounter; i++ )
+                {
+                    Day day = new Day(player1);
+                    days.Add(day);
+
+                }
+                
             }
+
+            return daysCounter;
         }
-
-        /* public List<string> ListDays()
-         {
-             for (int i = 0; i < 100; i++)
-             {
-                 Day day = new Day();
-
-             }
-         } Finish list of strings */
 
         public void GetCustomers()
         {
+                for (int i = 0; i < 50; i++)
+                {
+                    Customer customer = new Customer();
 
-            for (int i = 0; i < 50; i++)
-            {
-                //  Customer customer = new Customer();
-
-                customers.Add(new Customer(weather));
-                //  makeCustomers.Add(WeatherPref);
-                // Already gave it a value customer.pricemax.Add(); //dont know why this isnt 
-           //     if (weatherPref.selectedPattern = ("Sunny and hot, 80 degrees")
-            }
-        }             //Hi Nevin, biggest thing I have to finish is putting together the customer preferences ^^ and setting up adding and subtracting from
-        //the allowance and tying everything together
-
-        public void GetDays()
-        {
-
-            for (int i = 0; i < daysCounter; i++)
-            {
-                Day day = new Day(player1);
-                days.Add(day);
-
-
-                //daysCounter++;
-
-
-            }
-
+                }    
         }
-
     }
-
 }
    

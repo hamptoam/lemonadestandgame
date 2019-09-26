@@ -23,7 +23,7 @@ namespace LemonadeStand
 
         public Recipe(Player player)
         {
-            player1 = player;
+            player = player1;
             input1 = dailyCups;
             input2 = ice;
             input3 = lemons;
@@ -53,15 +53,19 @@ namespace LemonadeStand
             input3 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("How many cups of sugar would you like to use per jug?");
             input4 = Convert.ToInt32(Console.ReadLine());
+
+            DailyRecipe();
         }
 
         public void DailyRecipe()
         {
-
             Console.WriteLine(input1 + " cups total of lemonade for the day");
             Console.WriteLine(input2 + " ice cubes per cup");
             Console.WriteLine(input3 + " lemons per jug");
             Console.WriteLine(input4 + " cups of sugar per jug");
+
+
+            input1 = dailyCups;
         }
 
         /*public string GameRecipe()
@@ -74,9 +78,7 @@ namespace LemonadeStand
 
 
         **I'm thinking maybe call DailyRecipe() for every day in the day or game class 
-        * ask will
             }
-
         } */
     }
 }
