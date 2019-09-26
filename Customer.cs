@@ -21,10 +21,10 @@ namespace LemonadeStand
 
         public Customer()
         {
-            age = GetAge(); 
-            pricemax = GetPrice(); 
+            age = GetAge();
+            pricemax = GetPrice();
             recipepref = recipePref();
-            
+
         }
         public static int GetAge()
         {
@@ -76,31 +76,27 @@ namespace LemonadeStand
 
             return weather.weather;
         }
-        public enum recipePreferences
-        {
 
 
 
-
-
-
-        }
-        public Random recipePref(Recipe recipe)
+        public void recipePref(Recipe recipe)
         {
             Random r = new Random();
-
-
-
-
-            int selectedprefference = r.Next(0, 5);
-
-
-            return r; 
-
-
+            Player player1 = new Player();
+             
         }
+            public List<Recipe> recipeslist = new List<Recipe>()
+            {
+                 new Recipe(1, 2, 3, 6),
+                 new Recipe(2, 3, 1, 4),
+                 new Recipe(3, 4, 2, 3),
+                 new Recipe(4, 2, 3, 1),
+                 new Recipe(5, 3, 2, 4)
+            };
     }
 }
+    
+   
     
 
     
