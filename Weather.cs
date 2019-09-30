@@ -13,49 +13,49 @@ namespace LemonadeStand
         public Customer customer;
         public Player player1;
         public int weather;
+        public int daysCounter;
         public string forecast;
-        Random patterns;
-
+        Random rand;
+        public Dictionary<int, string> WeatherPatterns;
+        public string weatherPattern { get; set; }
+       
+    
+    
         public Weather(Player player1)
         {
-            patterns = new Random();
+            int selectedPattern;
             this.player1 = player1;
-            weather = GetWeather();
+           // weather = GetWeather();
             // forecast = WeeklyForecast();
-
         }
 
-        public int GetWeather()
-        {
-
-            return patterns.Next(0, 5);
-        }
 
         public void WeeklyForecast()
         {
-            List<string> Forecasts = new List<string>();
-
-            for (int i = 0; i < 7; i++)
+           
+            for (int i = 0; i < daysCounter; i++)
             {
 
-                Day day = new Day(player1);
+                WeatherPatterns.Add(1, "Sunny and hot, 80 degrees");
+                WeatherPatterns.Add(2, "Sunny and fair, 65 degrees");
+                WeatherPatterns.Add(3, "Cloudy and fair, 60 degrees");
+                WeatherPatterns.Add(4, "Scattered storms, 75 degrees");
+                WeatherPatterns.Add(5, "Cold and rainy, 50 degrees");
 
-                List<string> WeatherPatterns = new List<string>();
+                weatherPattern = WeatherPatterns.ElementAt(rand.Next(0, WeatherPatterns.Count)).Value;
 
-                WeatherPatterns.Add("Sunny and hot, 80 degrees");
-                WeatherPatterns.Add("Sunny and fair, 65 degrees");
-                WeatherPatterns.Add("Cloudy and fair, 60 degrees");
-                WeatherPatterns.Add("Scattered storms, 75 degrees");
-                WeatherPatterns.Add("Cold and rainy, 50 degrees");
-                int selectedPattern = patterns.Next(0, 5);
-
-                Forecasts.Add(WeatherPatterns[selectedPattern]);
-
-                Console.WriteLine("Day " + (i + 1) + " ; " + Forecasts[i]);
+                Console.WriteLine("Day " + (i + 1) + " ; " + weatherPattern);
 
             }
 
         }
+
+        //public int GetWeather()
+        //{
+        //    Console.WriteLine(weatherPattern);
+
+        //    return weatherPattern(key, value);
+        //}
 
     }
 

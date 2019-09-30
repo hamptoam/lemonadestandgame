@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace LemonadeStand
 {
@@ -10,22 +11,29 @@ namespace LemonadeStand
     {
 
         public int pricemax;
-        public int[] prices;
-        public List<string> ages; //= new string>();
+        public List<string> prices;
+        public List<string> customerrecipes;
+        public List<string> ages;
         public List<string> customers;
         public int age;
         public int price;
+        public int id;
         public Recipe recipe;
-        public int weatherpref;
-        public int recipepref;
+        public int[] recipepref;
+        public Weather weatherpref;
+        public int WeatherPref;
+        public Player player1;
+        public Random r;
+        string customerrecipe;
 
         public Customer()
         {
             age = GetAge();
             pricemax = GetPrice();
             recipepref = recipePref();
-
+            WeatherPref = weatherPref(weatherpref);
         }
+
         public static int GetAge()
         {
             int[] ages = new int[] { 6, 12, 18, 30, 50 };
@@ -40,61 +48,67 @@ namespace LemonadeStand
             price = r.Next(0, prices.Length);
             return price;
         }
-        public int WeatherPref(Weather weather)
-        {
-            weather.GetWeather();
 
-            foreach (var Customer in customers)
+        public int weatherPref(Weather weather)
+        {
+            return weather.GetWeather();
+        }
+
+        public void getPreferences()
+        {
+            Recipe recipe = new Recipe(player1);
+
+            for (int i = 0; i < customers.Count; i++)
             {
-                if (weather.weather == 0)
+                customerrecipes.Add("3 ice, 2 lemons, 2 sugars");
+                customerrecipes.Add("2 ice, 3 lemons, 6 sugars");
+                customerrecipes.Add("1 ice, 1 lemon, 3 sugars");
+                customerrecipes.Add("0 ice, 2 lemons, 4 sugars");
+                customerrecipes.Add("4 ice, 4 lemons, 8 sugars");
+
+                customerrecipe = customerrecipes.ElementAt(r.Next(0, customerrecipes.Count));
+
+                string[] recipes = Regex.Split(customerrecipe, @"\D+");
+
+                foreach (string value in recipes)
                 {
-                    Console.WriteLine(" Sunny and hot, 80 degrees");
+                    int number;
+                    if (int.TryParse(value, out number))
+                    {
+                        Console.WriteLine(value);
+                    }
                 }
-                else if (weather.weather == 1)
-                {
-                    Console.WriteLine(" Sunny and fair, 65 degrees");
-                    return weather.weather;
-                }
-                else if (weather.weather == 2)
-                {
-                    Console.WriteLine(" Cloudy and fair, 60 degrees");
-                    return weather.weather;
-                }
-                else if (weather.weather == 3)
-                {
-                    Console.WriteLine(" Scattered storms, 75 degrees");
-                    return weather.weather;
-                }
-                else if (weather.weather == 4)
-                {
-                    Console.WriteLine("Cold and rainy, 50 degrees");
-                    return weather.weather;
-                }
-                else Console.WriteLine("");
-                return weather.weather;
+
+                recipes[0] = recipe.ice.ToString();
+                recipes[1] = recipe.lemons.ToString();
+                recipes[2] = recipe.sugar.ToString();
+
+                return recipes[];
             }
 
-            return weather.weather;
         }
 
+        //public int recipePref(Customer customer)
+        //{
+        //    customer = recipeslist.random(id)
 
+        //    Random r = new Random(customer.id);
+        //    customer.recipe = recipes
+        //    return recipe;
+        //}
+        //public List<Customer> recipeslist = new List<Customer>()
+        //    {
+        //         new Customer( 1, 2, 3, 6),
+        //         new Customer( 2, 3, 1, 4),
+        //         new Customer( 3, 4, 2, 3),
+        //         new Customer( 4, 2, 3, 1),
+        //         new Customer( 5, 3, 2, 4)
 
-        public void recipePref(Recipe recipe)
-        {
-            Random r = new Random();
-            Player player1 = new Player();
-             
-        }
-            public List<Recipe> recipeslist = new List<Recipe>()
-            {
-                 new Recipe(1, 2, 3, 6),
-                 new Recipe(2, 3, 1, 4),
-                 new Recipe(3, 4, 2, 3),
-                 new Recipe(4, 2, 3, 1),
-                 new Recipe(5, 3, 2, 4)
-            };
+        //    int selectedCustomer = recipeslist.Next()
+        //    };
     }
 }
+
     
    
     

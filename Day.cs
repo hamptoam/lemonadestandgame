@@ -16,9 +16,6 @@ namespace LemonadeStand
         public int daysCounter;
         public int dailyCups;
 
-        /*public int supply;
-        public string demand;*/
-
         public Day(Player player)
         {
             
@@ -26,15 +23,7 @@ namespace LemonadeStand
 
         }
 
-        public void DaysCounter(Day day)
-        {
-
-
-
-
-        }
-
-   
+  
         //public void CycleDays()
         //{
 

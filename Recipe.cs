@@ -22,9 +22,9 @@ namespace LemonadeStand
         public int id;
         
 
-        public Recipe( int id, int ice, int lemons, int sugar )
+        public Recipe(Player player)
         {
-            
+            player = player1;
             input1 = dailyCups;
             input2 = ice;
             input3 = lemons;

@@ -135,7 +135,7 @@ namespace LemonadeStand
                     Console.WriteLine("Cool " + player1.name + " Let's squeeze some damn lemons!");
 
                     Console.Clear();
-                    //  GameMenu()
+                    GameMenu();
                 }
 
 
@@ -193,7 +193,6 @@ namespace LemonadeStand
                 {
                     Day day = new Day(player1);
                     days.Add(day);
-
                 }
                 
             }
@@ -206,7 +205,7 @@ namespace LemonadeStand
                 for (int i = 0; i < 50; i++)
                 {
                     Customer customer = new Customer();
-
+                    customers.Add(customer);
                 }    
         }
     }
