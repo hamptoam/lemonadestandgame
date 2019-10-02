@@ -19,19 +19,21 @@ namespace LemonadeStand
         public int price;
         public int id;
         public Recipe recipe;
-        public int[] recipepref;
-        public Weather weatherpref;
-        public int WeatherPref;
+        public int[] customerrecipe;
+        public Weather weather;
+        public int weatherpref;
         public Player player1;
         public Random r;
-        string customerrecipe;
+        public int ice;
+        public int lemons;
+        public int sugar;
 
         public Customer()
         {
             age = GetAge();
             pricemax = GetPrice();
-            recipepref = recipePref();
-            WeatherPref = weatherPref(weatherpref);
+            getPreferences();
+            weatherPref(weather, weatherpref);
         }
 
         public static int GetAge()
@@ -49,63 +51,20 @@ namespace LemonadeStand
             return price;
         }
 
-        public int weatherPref(Weather weather)
+        public int weatherPref(Weather weather, int weatherpref)
         {
-            return weather.GetWeather();
+            return weatherpref;
         }
 
-        public void getPreferences()
+        public (int ice, int lemons, int sugar) getPreferences()
         {
-            Recipe recipe = new Recipe(player1);
+            int ice = r.Next(1, 4);
+            int lemons = r.Next(1, 4);
+            int sugar = r.Next(1, 4);
 
-            for (int i = 0; i < customers.Count; i++)
-            {
-                customerrecipes.Add("3 ice, 2 lemons, 2 sugars");
-                customerrecipes.Add("2 ice, 3 lemons, 6 sugars");
-                customerrecipes.Add("1 ice, 1 lemon, 3 sugars");
-                customerrecipes.Add("0 ice, 2 lemons, 4 sugars");
-                customerrecipes.Add("4 ice, 4 lemons, 8 sugars");
-
-                customerrecipe = customerrecipes.ElementAt(r.Next(0, customerrecipes.Count));
-
-                string[] recipes = Regex.Split(customerrecipe, @"\D+");
-
-                foreach (string value in recipes)
-                {
-                    int number;
-                    if (int.TryParse(value, out number))
-                    {
-                        Console.WriteLine(value);
-                    }
-                }
-
-                recipes[0] = recipe.ice.ToString();
-                recipes[1] = recipe.lemons.ToString();
-                recipes[2] = recipe.sugar.ToString();
-
-                return recipes[];
-            }
-
+            return (ice, lemons, sugar);
         }
 
-        //public int recipePref(Customer customer)
-        //{
-        //    customer = recipeslist.random(id)
-
-        //    Random r = new Random(customer.id);
-        //    customer.recipe = recipes
-        //    return recipe;
-        //}
-        //public List<Customer> recipeslist = new List<Customer>()
-        //    {
-        //         new Customer( 1, 2, 3, 6),
-        //         new Customer( 2, 3, 1, 4),
-        //         new Customer( 3, 4, 2, 3),
-        //         new Customer( 4, 2, 3, 1),
-        //         new Customer( 5, 3, 2, 4)
-
-        //    int selectedCustomer = recipeslist.Next()
-        //    };
     }
 }
 

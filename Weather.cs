@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -14,9 +15,12 @@ namespace LemonadeStand
         public Player player1;
         public int weather;
         public int daysCounter;
+        public int weatherpref;
         public string forecast;
         Random rand;
         public Dictionary<int, string> WeatherPatterns;
+        private int pattern;
+
         public string weatherPattern { get; set; }
        
     
@@ -30,9 +34,9 @@ namespace LemonadeStand
         }
 
 
-        public void WeeklyForecast()
+        public int WeeklyForecast()
         {
-           
+
             for (int i = 0; i < daysCounter; i++)
             {
 
@@ -45,17 +49,34 @@ namespace LemonadeStand
                 weatherPattern = WeatherPatterns.ElementAt(rand.Next(0, WeatherPatterns.Count)).Value;
 
                 Console.WriteLine("Day " + (i + 1) + " ; " + weatherPattern);
-
             }
 
+            string[] key = Regex.Split(weatherPattern, @"\D+");
+
+            pattern = Convert.ToInt32(key);
+
+            return pattern;
         }
 
-        //public int GetWeather()
-        //{
-        //    Console.WriteLine(weatherPattern);
+        public int GetWeather(int weatherpref)
+        {
+            for (int i = 0; i < 50; i++)
+            {
 
-        //    return weatherPattern(key, value);
-        //}
+                WeatherPatterns.Add(1, "Sunny and hot, 80 degrees");
+                WeatherPatterns.Add(2, "Sunny and fair, 65 degrees");
+                WeatherPatterns.Add(3, "Cloudy and fair, 60 degrees");
+                WeatherPatterns.Add(4, "Scattered storms, 75 degrees");
+                WeatherPatterns.Add(5, "Cold and rainy, 50 degrees");
+
+                weatherPattern = WeatherPatterns.ElementAt(rand.Next(0, WeatherPatterns.Count)).Value;
+            }
+             string[] key = Regex.Split(weatherPattern, @"\D+");
+
+            weatherpref = Convert.ToInt32(key);
+
+            return weatherpref;
+        }
 
     }
 
