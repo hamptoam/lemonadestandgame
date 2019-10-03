@@ -8,41 +8,22 @@ namespace LemonadeStand
 {
     public class Inventory
     {
-        public int poundsSugar;
-        public int quantityLemons;
-        public int quantityCups;
-        public int iceCubes;
+        public Player player1;
+        public int sugar { get; set; }
+        public int lemons { get; set; }
+        public int cups { get; set; }
+        public int ice { get; set; }
+        public int amount;
         public Store store;
 
         public Inventory()
-
-        {  
-            poundsSugar = 0;
-            quantityLemons = 0;
-            quantityCups = 0;
-            iceCubes = 0;
-
-        }
-
-        public void AddSugar(int amount)
         {
-            poundsSugar += amount; 
+            int cups;
+            int ice;
+            int lemons; 
+            int sugar;
+            
         }
-
-        public void AddCups(int amount)
-        {
-            quantityCups += amount;
-        }
-
-        public void AddLemons(int amount)
-        {
-            quantityLemons += amount;
-        }
-
-        public void AddIce(int amount)
-        {
-            iceCubes += amount;
-        }
-
     }
 }
+

@@ -11,9 +11,7 @@ namespace LemonadeStand
         public Inventory inventory;
         public Recipe recipe;
         public string name;
-        public int allowance;
-        public int newAllowance;
-        public int expenses;
+        public int allowance { get; set; }
         public int storeInput;
 
         //add more as you can think 
@@ -22,7 +20,7 @@ namespace LemonadeStand
         public Player()
         {
             inventory = new Inventory();
-
+            allowance = 1000;
         }
     }
 }
